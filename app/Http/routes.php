@@ -105,7 +105,9 @@ Route::group(['domain' => 'api.strever.dev', 'namespace' => 'Api'], function () 
 });
 
 
-
+/**
+ * 后台路由
+ */
 Route::group(['domain' => 'admin.strever.dev', 'namespace' => 'Admin'], function () {
     Route::get('/', function() {
         return view('welcome');
@@ -113,12 +115,17 @@ Route::group(['domain' => 'admin.strever.dev', 'namespace' => 'Admin'], function
     });
 });
 
-
+/**
+ * web l路由
+ */
 Route::group(['middleware' => ['web']], function () {
-    //
 
     Route::get('/', function () {
         return view('welcome');
+    });
+
+    Route::get('/test', function() {
+        return 'dfgjbfjhvbfvbhdfjlkslkjg';
     });
 });
 
