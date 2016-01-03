@@ -140,12 +140,11 @@ Route::group(['middleware' => ['web']], function () {
         return config('blog.site_title');
     });
 
+    Route::get('/tag/{id}', function($id) {
+        return 'dfvffg';
+    });
+
     Route::get('/test', function() {
         return 'dfgjbfjhvbfvbhdfjlkslkjg';
     });
 });
-
-
-
-
-

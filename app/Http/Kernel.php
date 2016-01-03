@@ -36,7 +36,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:60,1',
-            
+
             //oauth2-server
             'oauth' => \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware::class,
             'oauth-user' => \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware::class,
