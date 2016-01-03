@@ -5,6 +5,7 @@ Homestead.json
 .env
 
 .DS_Store
+._.DS_Store
 composer.lock
 phpunit.xml
 phpspec.yml
