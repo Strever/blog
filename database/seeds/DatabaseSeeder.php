@@ -11,6 +11,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserTableSeeder::class);
+        \Illuminate\Database\Eloquent\Model::unguard();
+        $this->call(ArticleTableSeeder::class);
+    }
+}
+
+class ArticleTableSeeder extends Seeder
+{
+    public function run()
+    {
+        \App\Article::truncate();
+        factory(\App\Article::class, 20)->create();
     }
 }

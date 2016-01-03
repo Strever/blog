@@ -27,7 +27,11 @@
 /**
  * 接口routes
  */
-Route::group(['domain' => 'api.strever.dev', 'namespace' => 'Api'], function () {
+Route::group(['domain' => 'api.strever.dev', 'namespace' => 'Api', 'middleware' => ['api']], function () {
+
+    Route::get('/', function() {
+        return 'welcome!';
+    });
 
     //申请 access_token 或者刷新 access_token.
     Route::any('oauth/access_token', function () {
@@ -116,12 +120,24 @@ Route::group(['domain' => 'admin.strever.dev', 'namespace' => 'Admin'], function
 });
 
 /**
- * web l路由
+ * web 路由
  */
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
+    Route::get('/', function() {
+        return redirect('/article/');
+    });
+
+    Route::get('/article', 'Blog@index');
+
+    Route::get('/article/{id}', function($id) {
+        return \App\Article::findOrFail(['slug' => $id]);
+    });
+
+    Route::get('/detail/{slug}', 'Blog@detail');
+
+    Route::get('/about', function() {
+        return config('blog.site_title');
     });
 
     Route::get('/test', function() {

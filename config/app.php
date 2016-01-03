@@ -162,6 +162,8 @@ return [
 
         //markdown
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        //ide-helper
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
     ],
 
